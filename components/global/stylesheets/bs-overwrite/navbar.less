@@ -1,0 +1,46 @@
+//
+// Navbars
+// --------------------------------------------------
+
+// Brand/project name
+
+.navbar-brand {
+  padding: 0;
+
+  @media (min-width: @grid-float-breakpoint) {
+    .navbar > .container &,
+    .navbar > .container-fluid & {
+      margin-left: 0;
+    }
+    .navbar > .container &:first-child,
+    .navbar > .container-fluid &:first-child {
+      margin-left: -@navbar-padding-horizontal;
+    }
+  }
+}
+
+.navbar-nav {
+
+  > li > a {
+    padding-top:    10px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    line-height: 20px;
+    color: @text-color;
+    &:hover { background-color: transparent; }
+  }
+
+  // Uncollapse the nav
+  @media (min-width: @grid-float-breakpoint) {
+    > li > a {
+      padding-top:    10px;
+      padding-bottom: 10px;
+    }
+
+    &.navbar-right:last-child {
+      margin-right: -@navbar-padding-horizontal;
+    }
+  }
+}
+
+

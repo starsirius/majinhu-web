@@ -1,0 +1,15 @@
+.sm-fixed-artwork-image-container-width(@columns) {
+  @media (min-width: @screen-sm-min) {
+    width: @container-sm * @columns / @grid-columns;
+  }
+}
+.md-fixed-artwork-image-container-width(@columns) {
+  @media (min-width: @screen-md-min) {
+    width: @container-md * @columns / @grid-columns;
+  }
+}
+.lg-fixed-artwork-image-container-width(@columns) {
+  @media (min-width: @screen-lg-min) {
+    width: @container-lg * @columns / @grid-columns;
+  }
+}

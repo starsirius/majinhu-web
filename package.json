@@ -7,9 +7,12 @@
   "dependencies": {
     "express": "*",
     "jade": "*",
+    "swig": "*",
+    "less": "*",
     "sharify": "*",
     "backbone": "*",
-    "backbone-super-sync": "*"
+    "backbone-super-sync": "*",
+    "less-middleware": "*"
   },
   "devDependencies": {
     "jquery": "*",
@@ -24,7 +27,6 @@
     "zombie": "*",
     "html5": "*",
     "sqwish": "*",
-    "uglify-js": "*",
-    "swig": "*"
+    "uglify-js": "*"
   }
 }

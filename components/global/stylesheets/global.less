@@ -1,0 +1,143 @@
+@imageFolder: "../img";
+@fontFolder:  "../fonts";
+@font-family-header: "Black Ink", Azuki, "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-paragraph: Cardo, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+@font-face {
+  font-family: 'Black Ink';
+  src: local(Azuki),
+       local("Helvetica Neue");
+}
+
+@font-face {
+  font-family: 'Black Ink';
+  unicode-range: U+00-024F;
+  src: local(Azuki),
+       local("Helvetica Neue");
+}
+
+@font-face {
+  font-family: 'Black Ink';
+  unicode-range: U+4E00-9FFF;
+  src: local(BiauKai),
+       local("LiSong Pro"),
+       local("LiHei Pro"),
+       local("微軟正黑體");
+}
+
+@font-face {
+    font-family: 'Azuki';
+    src: url('@{fontFolder}/azuki-webfont.eot');
+    src: url('@{fontFolder}/azuki-webfont.eot?#iefix') format('embedded-opentype'),
+         url('@{fontFolder}/azuki-webfont.woff') format('woff'),
+         url('@{fontFolder}/azuki-webfont.ttf') format('truetype'),
+         url('@{fontFolder}/azuki-webfont.svg#azukiregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cardo';
+    src: url('@{fontFolder}/cardo104s-webfont.eot');
+    src: url('@{fontFolder}/cardo104s-webfont.eot?#iefix') format('embedded-opentype'),
+         url('@{fontFolder}/cardo104s-webfont.woff') format('woff'),
+         url('@{fontFolder}/cardo104s-webfont.ttf') format('truetype'),
+         url('@{fontFolder}/cardo104s-webfont.svg#cardoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cardo';
+    src: url('@{fontFolder}/cardob101-webfont.eot');
+    src: url('@{fontFolder}/cardob101-webfont.eot?#iefix') format('embedded-opentype'),
+         url('@{fontFolder}/cardob101-webfont.woff') format('woff'),
+         url('@{fontFolder}/cardob101-webfont.ttf') format('truetype'),
+         url('@{fontFolder}/cardob101-webfont.svg#cardobold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cardo';
+    src: url('@{fontFolder}/cardoi99-webfont.eot');
+    src: url('@{fontFolder}/cardoi99-webfont.eot?#iefix') format('embedded-opentype'),
+         url('@{fontFolder}/cardoi99-webfont.woff') format('woff'),
+         url('@{fontFolder}/cardoi99-webfont.ttf') format('truetype'),
+         url('@{fontFolder}/cardoi99-webfont.svg#CardoItalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+.navbar { margin-top: 100px; }
+
+h1, h2 {
+  font-family: @font-family-header;
+}
+
+.navbar-nav {
+  font-family: @font-family-header;
+}
+
+.navbar-brand {
+  background: url("@{imageFolder}/brand.png") no-repeat;
+  height: @navbar-height;
+  margin-right: 20px;
+}
+
+.navbar-stamp{
+  background-position: 0 0;
+  width: 51px;
+}
+
+.navbar-logo{
+  background-position: -53px 0;
+  width: 147px;
+}
+
+.navbar-subtitle{
+  background-position: -201px 0;
+  width: 230px;
+}
+
+.navbar-wide {
+  .container-fluid, 
+  .navbar-collapse { padding-right: 0; }
+}
+
+.faux-underline-hover {
+  & {
+    text-decoration: none;
+    &:hover, &:focus {
+      &:before {
+        content: 'o';
+        color: rgb(255, 48, 48);
+        opacity: 0.5;
+        font-size: 80px;
+        font-family: @font-family-header;
+        display: inline-block;
+        position: absolute;
+        top: 8px;
+        left: 10px;
+        z-index: -1;
+        .rotate(45deg);
+      }
+    }
+  }
+}
+
+.header-container {
+  .make-lg-column(12);
+}
+
+.footer {
+  font-size: @font-size-base * 0.8;
+  color: #999;
+  text-align: right;
+  margin-top: 50px;
+  padding: 20px 0;
+
+  @media (max-width: @screen-sm-min) {
+    text-align: center;
+  }
+}
