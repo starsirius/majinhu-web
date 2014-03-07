@@ -24,6 +24,7 @@
     "zombie": "*",
     "html5": "*",
     "sqwish": "*",
-    "uglify-js": "*"
+    "uglify-js": "*",
+    "swig": "*"
   }
 }
