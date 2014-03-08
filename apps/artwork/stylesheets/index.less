@@ -1,0 +1,153 @@
+#artwork {
+  &, .artwork-layout-container {
+    height: 100%;
+  }
+
+  /***********************************
+   * Display artwork image on the left
+   *         content on the right.
+   ***********************************/
+  .artwork-image-container-left {
+    .make-sm-column(3);
+    .make-md-column(3);
+    .make-lg-column(3);
+    .sm-fixed-artwork-image-container-width(3);
+    .md-fixed-artwork-image-container-width(3);
+    .lg-fixed-artwork-image-container-width(3);
+    position: fixed;
+    height: 100%;
+    
+    .artwork-image {
+      height: 100%;
+      img {
+        float: right;
+        margin-right: 20px;
+        height: 100%;
+        min-height: 700px;
+      }
+    }
+
+    @media (max-width: @screen-sm-min) {
+      position: initial;
+      margin-top: 100px;
+      .artwork-image {
+        height: auto;
+        text-align: center;
+        img {
+          height: auto;
+          width: 100%;
+          margin-bottom: 20px;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .header-container-right,
+  .artwork-content-container-right {
+    .make-sm-column(9);
+    .make-sm-column-offset(3);
+    .make-md-column(9);
+    .make-md-column-offset(3);
+    .make-lg-column(9);
+    .make-lg-column-offset(3);
+  }
+
+  .header-container-right {
+    @media (max-width: @screen-sm-min) {
+      position: fixed;
+      top: 0;
+      width: @container-lg - @grid-gutter-width * 2;
+      .navbar { margin-top: 20px; }
+    }
+  }
+
+  /**********************************
+   * Display artwork image on the top
+   *         content on the bottom.
+   **********************************/
+  .artwork-image-container-top {
+    .make-lg-column(12);
+    margin: 110px 0 50px 0;
+
+    .artwork-image {
+      text-align: center;
+      img {
+        max-width: 75%;
+      }
+    }
+  }
+
+  .artwork-content-container-bottom {
+    .make-lg-column(12);
+  }
+
+  .header-container-top {
+    position: fixed;
+    width: @container-lg - @grid-gutter-width * 2;
+    .navbar { margin-top: 20px; }
+  }
+
+
+  /**********************************
+   * Content styling
+   **********************************/
+  .artwork-heading-container {
+    .make-lg-column(12);
+    margin-bottom: 20px;
+    h1 {
+      display: inline-block;
+    }
+    .artwork-sharing {
+      display: inline-block;
+      margin-left: 20px;
+      a[class^="icon-"] {
+        font-size: 18px;
+        line-height: 1em;
+        text-decoration: none;
+        color: @gray;
+        &:hover {
+          color: @gray-dark;
+        }
+      }
+      @media (max-width: @screen-sm-min) {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .breadcrumbs-container {
+    .make-lg-column(12);
+  }
+
+  .artwork-meta-container {
+    .make-xs-column(12);
+    .make-sm-column(12);
+    .make-md-column(4);
+    .make-lg-column(4);
+    margin-bottom: 30px;
+  }
+
+  .artwork-meta {
+    margin-top: 12px;
+    > li {
+      padding: 8px 0;
+      border-bottom: 1px dotted @gray-light;
+    }
+  }
+
+  .artwork-details-container {
+    .make-xs-column(12);
+    .make-sm-column(12);
+    .make-md-column(8);
+    .make-lg-column(8);
+  }
+
+  .artwork-details-section {
+    margin-bottom: 50px;
+  }
+
+  .footer-container {
+    .make-lg-column(12);
+  }
+}

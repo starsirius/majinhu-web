@@ -11,10 +11,10 @@
   <meta name="viewport" content="width=device-width">
 
   {% block head -%}
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
   {%- endblock %}
 
-  <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+  <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body id="{% block bodyId %}{% endblock %}">
   <!--[if lt IE 7]>
@@ -27,7 +27,7 @@
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
 
   {% block script -%}
-  <script src="js/bundle.min.js"></script>
+  <script src="/js/bundle.min.js"></script>
   {%- endblock %}
 
   <script>

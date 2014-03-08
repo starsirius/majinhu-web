@@ -20,15 +20,15 @@ test: assets
 
 # Generate minified assets from the /assets folder and output it to /public.
 assets:
-	mkdir -p public/assets
-	$(foreach file, $(shell find assets -name '*.js' | cut -d '.' -f 1), \
-		$(BIN)/browserify $(file).js -t jadeify > public/$(file).js; \
+	mkdir -p public/js
+	$(foreach file, $(shell find assets/js -name '*.js' | cut -d '.' -f 1 | cut -d '/' -f 2-), \
+		$(BIN)/browserify assets/$(file).js > public/$(file).js; \
 		$(BIN)/uglifyjs public/$(file).js > public/$(file).min.js \
 	)
-	$(BIN)/stylus assets -o public/assets
-	$(foreach file, $(shell find assets -name '*.styl' | cut -d '.' -f 1), \
-		$(BIN)/sqwish public/$(file).css -o public/$(file).min.css \
-	)
+	#mkdir -p public/css
+	#$(foreach file, $(shell find assets -name '*.styl' | cut -d '.' -f 1), \
+	#	$(BIN)/sqwish public/$(file).css -o public/$(file).min.css \
+	#)
 
 # Cleans up the initial GitHub app example files. After running this you might
 # want to change the API_URL in config, mount your own app in lib/setup,
