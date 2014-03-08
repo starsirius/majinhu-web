@@ -21,10 +21,12 @@ test: assets
 # Generate minified assets from the /assets folder and output it to /public.
 assets:
 	mkdir -p public/js
-	$(foreach file, $(shell find assets/js -name '*.js' | cut -d '.' -f 1 | cut -d '/' -f 2-), \
+	$(foreach file, $(shell find assets/js -maxdepth 1 -name '*.js' | cut -d '.' -f 1 | cut -d '/' -f 2-), \
 		$(BIN)/browserify assets/$(file).js > public/$(file).js; \
 		$(BIN)/uglifyjs public/$(file).js > public/$(file).min.js \
 	)
+	cp -r assets/js/bs assets/js/vendor public/js
+	cp -r assets/img assets/fonts assets/icon-fonts assets/favicon.ico assets/humans.txt public
 	#mkdir -p public/css
 	#$(foreach file, $(shell find assets -name '*.styl' | cut -d '.' -f 1), \
 	#	$(BIN)/sqwish public/$(file).css -o public/$(file).min.css \
