@@ -18,4 +18,4 @@ swig.setDefaults({ cache: false });
 // Don't leave both of these to `false` in production!
 swig.setDefaults({ loader: swig.loaders.fs(__dirname + '/../../components/global/templates') });
 
-app.get('/', routes.index);
+app.get('/artworks', routes.index);

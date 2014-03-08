@@ -1,135 +1,88 @@
 {% extends 'layout.html' %}
 
-{% block title %}Ma Jinhu{% endblock %}
+{% block title %}Ma Jinhu - Artworks{% endblock %}
 
-{% block bodyId %}home{% endblock %}
+{% block bodyId %}artworks{% endblock %}
 
 {% block content %}
-  <div class="drawing-container hidden-sm hidden-xs">
-    <img class="drawing" src="img/background.png">
-  </div>
-
   <div class="container">
 
     <!-- Navbar -->
     <div class="row">
-      <div class="header-container">
-        <header class="navbar navbar-wide" role="navigation">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <a class="navbar-brand navbar-stamp" href="/"></a>
-              <a class="navbar-brand navbar-logo" href="/"></a>
-              <a class="navbar-brand navbar-subtitle hidden-xs" href="/"></a>
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-            </div>
-            <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="#" class="faux-underline-hover"><div class="cht">馬金虎</div><div class="eng">Jinhu Ma</div></a>
-                </li>
-                <li><a href="#" class="faux-underline-hover"><div class="cht">作品集</div><div class="eng">Artworks</div></a></li>
-                <li><a href="#" class="faux-underline-hover"><div class="cht">最新消息</div><div class="eng">News</div></a></li>
-                <li><a href="#" class="faux-underline-hover"><div class="cht">聯絡我們</div><div class="eng">Contact</div></a></li>
-              </ul>
-            </div>
+      <div class="col-lg-11">
+        <header class="navbar" role="navigation">
+          <div class="navbar-header">
+            <a class="navbar-brand navbar-stamp" href="/"></a>
           </div>
+          <nav class="nav-main">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#" class="faux-underline-hover"><div class="cht">馬金虎</div><div class="eng">Jinhu Ma</div></a>
+              </li>
+              <li><a href="#" class="faux-underline-hover"><div class="cht">作品集</div><div class="eng">Artworks</div></a></li>
+              <li><a href="#" class="faux-underline-hover"><div class="cht">最新消息</div><div class="eng">News</div></a></li>
+              <li><a href="#" class="faux-underline-hover"><div class="cht">聯絡我們</div><div class="eng">Contact</div></a></li>
+            </ul>
+          </nav>
         </header>
       </div>
     </div>
-    
+
     <div class="row">
-
-      <!-- Profile picture -->
-      <div class="profile-pic-container">
-        <figure class="profile-pic">
-          <img src="img/profile-pic.jpg" alt="Jinhu Ma">
-          <figurecaption></figurecaption>
-        </figure>
+      <div class="col-lg-11 nav-artworks-filter-container">
+        <nav class="nav-artworks-filter">
+          <ul class="nav navbar-nav">
+            <li><h1><div class="cht">梅</div><div class="eng">Plum</div></h1></li>
+            <li><a href="#"><div class="cht">蘭</div><div>Orchids</div></a></li>
+            <li><a href="#"><div class="cht">竹</div><div>Bamboo</div></a></li>
+            <li><a href="#"><div class="cht">菊</div><div>Mums</div></a></li>
+            <li><a href="#"><div class="cht">紫藤</div><div>Wisteria</div></a></li>
+            <li><a href="#"><div class="cht">牡丹</div><div>Peony</div></a></li>
+            <li><a href="#"><div class="cht">全</div><div>All</div></a></li>
+          </ul>
+        </nav>
+        <div class="scroll-button">
+          <a href="#" class="scroll-button-left">&lt;</a>
+          <a href="#" class="scroll-button-right">&gt;</a>
+        </div>
       </div>
+    </div>
 
-      <!-- Bio -->
-      <div class="bio-container">
-        <section class="bio cht">
-          <h1>藝術家馬金虎</h1>
-          <p>
-          馬金虎，男，1950年4月生，原濟南市政協委員、
-          民進濟南市委常委。現為美國紐英倫藝術學會
-          顧問、中國國際名人藝術家聯合會理事、中國書
-          畫家協會理事、山東省國際經濟文化發展中心秘
-          書長，山東畫院特聘畫師，山東開明書畫院副秘
-          書長、濟南市華夏文化促進會常務理事。
-          </p>
-          <p>
-          作品多次參加各級美展並獲獎，在多家刊物發表
-          並作為禮品赴日本、韓國、澳大利亞等國進行交
-          流。2010 年 10 月至 2011 年 5 月赴美國開展
-          了一系列的藝術交流活動，在橋水州立大學、哈
-          佛大學醫學院及廣教中文學校、英格蘭家長協會
-          舉辦講座並現場作畫，為廣教中文學校和亞美聯
-          誼會等捐拍書畫作品，在波士頓、紐約舉辦個人
-          書畫展，並向陳香梅、馬英九贈送畫作。美國世
-          界日報、星島日報、僑報、波士頓新聞報、僑報
-          周末、多維時報、台山人在美國等多家報刊多次
-          採訪並進行了多角度的介紹。藝術上積極探索、
-          追求博採眾長，信奉勤能補拙。作品清新典雅，
-          既注重深厚的傳統功力，又努力形成獨特的藝術
-          風格。熱心公益事業，積極從事各種文化藝術事
-          業的交流活動。
-          </p>
-        </section>
-
-        <section class="bio eng">
-          <h1>Jinhu Ma</h1>
-          <p>
-          Born in Jinan in 1950, 
-          Jin Hu Ma began to paint at eight and developed his skills under 
-          his teachers, Jin Don Mi and Yan Xin Yi, both famous artists in 
-          China. 
-          He served as a People's Political Consultative Conference Member 
-          of Jinan, was a member of the Standing Committee of the China 
-          Association for Promoting Democracy of Jinan, and was a Deputy 
-          Researcher of Sports Health and Arts of the Bureau of Education 
-          of Jinan. 
-          He is now serving as an honored trustee of the New England 
-          Institute of Art, and received an honorary degree from the
-          American Pulinton University in 2013. 
-          Jin Hu's Paintings have been shown at several city, province, 
-          and country level art exhibitionsand are treasured by collectors 
-          from countriesaround the world including Korea, Japan and 
-          Australia. 
-          Jin Hu Ma organized and participated in a series of artistic 
-          activities in the United States from October 2010 to May 2011. 
-          He led seminars and demonstrated painting at Bridgewater State 
-          University, Harvard Medical School, KwongKow Chinese School, 
-          and the New England Association of Parents. 
-          He has held personal painting and calligraphy exhibitions in 
-          Boston and New York, and his paintings have been presented to 
-          Xiangmei Chen and Yingjiu Ma as gifts. 
-          His activities in America were thoroughly reported by the U.S 
-          World Journal, Sing Tao Daily, USQiaobao, Boston News, Duowei 
-          Times, Taishanese in America and several other media sources. 
-          Jin Hu Ma has wide interests in painting, believes that diligence 
-          is the cure for dullness, and actively explores and absorbs new 
-          painting techniques.
-          By and by, these accumulations from various sources inform his 
-          fresh painting style.
-          His original and elegant work reflects not only his profound 
-          traditional skill, but also his unique artistic sense.
-          Enthusiastic about public welfare, he actively engages in 
-          various artistic and cultural exchanges and is an enthusiastic 
-          participant in charity and cultural communications. 
-          </p>
-        </section>
+    <!-- Example Black Ink Gallery mock ups
+    <div id="gallery" class="black-ink-gallery vertical">
+      <div class="big-inner">
+        <div class="big-figure-column">
+          <figure class="big-figure">
+            <figurecaption class="big-figurecaption">
+              <p class="artwork-name">黃花過時有餘香</p>
+              <p class="artwork-meta">2011 年作品 長 120cm 寬 45cm</p>
+            </figurecaption>
+            <a href="#"><img src="/img/artwork-01.jpg" alt=""></a>
+          </figure>
+        </div>
       </div>
+    </div>
+    -->
 
+    <div id="gallery" class="black-ink-gallery">
+      <a href="#"><img src="/img/artwork-01.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
+      <a href="#"><img src="/img/artwork-15.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
+      <a href="#"><img src="/img/artwork-16.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
+      <a href="#"><img src="/img/artwork-17.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
+      <a href="#"><img src="/img/artwork-18.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
+      <a href="#"><img src="/img/artwork-02.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
+      <a href="#"><img src="/img/artwork-03.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
+      <a href="#"><img src="/img/artwork-04.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
+      <a href="#"><img src="/img/artwork-08.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
+      <a href="#"><img src="/img/artwork-09.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
+      <a href="#"><img src="/img/artwork-13.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
+      <a href="#"><img src="/img/artwork-10.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
+      <a href="#"><img src="/img/artwork-14.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
+      <a href="#"><img src="/img/artwork-11.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
+      <a href="#"><img src="/img/artwork-12.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
     </div>
 
     <div class="row">
-      <div class="footer-container">
+      <div class="col-lg-11">
         <footer class="footer">
         &copy; 2014. All rights reserved.
         </footer>
@@ -137,4 +90,35 @@
     </div>
 
   </div>
+{% endblock %}
+
+{% block script %}
+  {% parent %}
+  <script src="/js/vendor/black-ink-gallery.js"></script>
+  <script>
+    $('#gallery').blackInkGallery();
+
+    if ($('body')[0].style["-webkit-writing-mode"] != undefined) {
+      $('#artworks > .container').addClass('vertical-rl');
+    }
+
+    // If we display the scroll button
+    $('.scroll-button-left, .scroll-button-right').on("mouseover", function(e) {
+      var interval = 10, velocity = 8, _this = this;
+
+      var intervalId = setInterval(function() {
+        left = $('.vertical-rl').scrollLeft();
+
+        if ($(_this).hasClass("scroll-button-left")) {
+          $('.vertical-rl').scrollLeft(left - velocity);
+        }
+        if ($(_this).hasClass("scroll-button-right")) {
+          $('.vertical-rl').scrollLeft(left + velocity);
+        }
+      }, interval);
+      $(this).on("mouseout", function(e) { clearInterval(intervalId); });
+
+      e.stopPropagation();
+    });
+  </script>
 {% endblock %}
