@@ -8,7 +8,7 @@
 module.exports = {
   NODE_ENV: 'development',
   PORT: 4000,
-  API_URL: 'https://api.github.com'
+  API_URL: 'http://127.0.0.1:5000'
 }
 
 // Override any values with env variables

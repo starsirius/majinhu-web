@@ -1,0 +1,87 @@
+{% extends 'layout.html' %}
+
+{% block title %}Ma Jinhu{% endblock %}
+
+{% block bodyId %}admin{% endblock %}
+
+{% block content %}
+  <div class="container">
+
+    <!-- Navbar -->
+    <div class="row">
+      <div class="header-container">
+        <header class="navbar navbar-wide" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand navbar-stamp" href="/"></a>
+              <a class="navbar-brand navbar-logo" href="/"></a>
+              <a class="navbar-brand navbar-subtitle hidden-xs" href="/"></a>
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#" class="faux-underline-hover"><div class="cht">馬金虎</div><div class="eng">Jinhu Ma</div></a>
+                </li>
+                <li><a href="#" class="faux-underline-hover"><div class="cht">作品集</div><div class="eng">Artworks</div></a></li>
+                <li><a href="#" class="faux-underline-hover"><div class="cht">最新消息</div><div class="eng">News</div></a></li>
+                <li><a href="#" class="faux-underline-hover"><div class="cht">聯絡我們</div><div class="eng">Contact</div></a></li>
+              </ul>
+            </div>
+          </div>
+        </header>
+      </div>
+    </div>
+    
+    <div class="row"><h1>Admin</h1></div>
+
+    <div class="row">
+      <section>
+        <h2>Artworks</h2>
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Category</th>
+              <th>Width</th>
+              <th>Height</th>
+              <th>Image URL</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for a in artworks %}
+            <tr>
+              <td></td>
+              <td>{{a.get('title')}}</td>
+              <td>{{a.get('category')}}</td>
+              <td>{{a.get('width')}}</td>
+              <td>{{a.get('height')}}</td>
+              <td>{{a.get('images').image_url}}</td>
+              <td>{{a.get('date')}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Create new artworks</h2>
+      </section>
+    </div>
+
+    <div class="row">
+      <div class="footer-container">
+        <footer class="footer">
+        &copy; 2014. All rights reserved.
+        </footer>
+      </div>
+    </div>
+
+  </div>
+{% endblock %}
