@@ -7,7 +7,7 @@ exports.index = function(req, res, next) {
   var artworks = new Artworks();
   artworks.fetch({
     success: function() {
-      res.locals.sd.ARTWORKS = {artworks.toJSON()};
+      res.locals.sd.ARTWORKS = artworks.toJSON();
       res.render('index', {artworks: artworks.models});
     },
     error: function(m, err) { next(err.text); }
