@@ -28,7 +28,7 @@ module.exports.AdminView = AdminView = Backbone.View.extend({
     var data = $(e.currentTarget).serializeObject()
       , artwork = new Artwork(data);
 
-    artwork.url = "http://localhost:5000/artworks";
+    artwork.url = sd.API_URL + "/artworks";
     artwork.save(null, {
       success: function(model, response, options) {
         if (response._status === "ERR") {
@@ -37,6 +37,8 @@ module.exports.AdminView = AdminView = Backbone.View.extend({
               '<div>' + field + " " + response._issues[field] + '</div>'
             );
           }
+        } else {
+
         }
       },
       error: function(model, response, options) {
