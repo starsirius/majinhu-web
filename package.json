@@ -12,7 +12,8 @@
     "sharify": "*",
     "backbone": "*",
     "backbone-super-sync": "*",
-    "less-middleware": "*"
+    "less-middleware": "*",
+    "pinyin": "*"
   },
   "devDependencies": {
     "jquery": "*",

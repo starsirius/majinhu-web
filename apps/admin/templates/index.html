@@ -126,6 +126,11 @@
             </div>
           </div>
         </form>
+
+        <div class="alert alert-danger alert-dismissable" id="artwork-create-error">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <strong>Oops!</strong>
+        </div>
       </section>
     </div>
 
@@ -141,5 +146,6 @@
 {% endblock %}
 
 {% block script %}
+{% parent %}
 <script src="/js/admin.js"></script>
 {% endblock %}
