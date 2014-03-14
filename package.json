@@ -13,7 +13,8 @@
     "backbone": "*",
     "backbone-super-sync": "*",
     "less-middleware": "*",
-    "pinyin": "*"
+    "pinyin": "*",
+    "node-uuid": "*"
   },
   "devDependencies": {
     "jquery": "*",
