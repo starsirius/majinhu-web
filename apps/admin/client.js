@@ -34,9 +34,13 @@ module.exports.AdminView = AdminView = Backbone.View.extend({
       , imageForm = new FormData()
       , that = this;
 
-    artwork.set("images", {
-      image_versions: ["original"],
-      image_url: ["", imageHash, ":version.jpg"].join("/")
+    artwork.set({
+      id: pinyin(data.title, {style: pinyin.STYLE_NORMAL}).join("-").toLowerCase(),
+      images: {
+        image_versions: ["original"],
+        image_url: ["", imageHash, ":version.jpg"].join("/")
+      },
+      owner: "jinhu-ma"
     });
 
     imageForm.append("image", $('#artwork-create-image')[0].files[0]);
@@ -57,6 +61,7 @@ module.exports.AdminView = AdminView = Backbone.View.extend({
     });
 
     artwork.url = sd.API_URL + "/artworks";
+    artwork.isNew = function() { return true; };
     artwork.save(null, {
       success: function(model, response, options) {
         if (response._status === "ERR") {
