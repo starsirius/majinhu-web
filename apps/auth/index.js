@@ -1,6 +1,7 @@
 var express = require('express')
   , swig    = require('swig')
-  , routes  = require('./routes');
+  , routes  = require('./routes')
+  , passport = require('passport');
 
 var app = module.exports = express();
 
@@ -18,15 +19,6 @@ swig.setDefaults({ cache: false });
 // Don't leave both of these to `false` in production!
 swig.setDefaults({ loader: swig.loaders.fs(__dirname + '/../../components/global/templates') });
 
-app.get('/admin', ensureAuthenticated, routes.index);
-app.post('/admin/artwork/image', routes.uploadImage);
-
-// Simple route middleware to ensure user is authenticated.
-//   Use this route middleware on any resource that needs to be protected.  If
-//   the request is authenticated (typically via a persistent login session),
-//   the request will proceed.  Otherwise, the user will be redirected to the
-//   login page.
-function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) { return next(); }
-  res.redirect('/login');
-}
+app.get('/login', routes.index);
+app.get('/logout', routes.logout);
+app.post('/login', passport.authenticate('local', { failureRedirect: '/login' }), routes.submitLogin);

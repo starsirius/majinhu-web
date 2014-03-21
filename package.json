@@ -14,7 +14,9 @@
     "backbone-super-sync": "*",
     "less-middleware": "*",
     "pinyin": "*",
-    "node-uuid": "*"
+    "node-uuid": "*",
+    "passport": "*",
+    "passport-local": "*"
   },
   "devDependencies": {
     "jquery": "*",
