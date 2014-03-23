@@ -16,7 +16,9 @@
     "pinyin": "*",
     "node-uuid": "*",
     "passport": "*",
-    "passport-local": "*"
+    "passport-local": "*",
+    "superagent": "*",
+    "moment": "*"
   },
   "devDependencies": {
     "jquery": "*",
