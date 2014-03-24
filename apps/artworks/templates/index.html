@@ -47,7 +47,7 @@
       </div>
     </div>
 
-    <!-- Example Black Ink Gallery mock ups
+    <!-- Example Black Ink Gallery mockups
     <div id="gallery" class="black-ink-gallery vertical">
       <div class="big-inner">
         <div class="big-figure-column">
@@ -64,21 +64,13 @@
     -->
 
     <div id="gallery" class="black-ink-gallery">
+      {% for i, a in artworks -%}
+        {% set image_url = a.get('images')['image_url']|replace(':version', a.get('images')['image_versions'][0]) %}
+        <a href="/img{{image_url}}"><img src="/img{{image_url}}" alt="{{a.get('title')}}" data-caption='{"artwork-name": "{{a.get('title')}}", "artwork-meta": "{{a.get('date')|date('Y')}} 年作品 長 {{a.get('height')}} cm 寬 {{a.get('width')}} cm"}'></a>
+      {%- endfor %}
+      <!--
       <a href="#"><img src="/img/artwork-01.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
-      <a href="#"><img src="/img/artwork-15.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
-      <a href="#"><img src="/img/artwork-16.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
-      <a href="#"><img src="/img/artwork-17.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
-      <a href="#"><img src="/img/artwork-18.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
-      <a href="#"><img src="/img/artwork-02.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
-      <a href="#"><img src="/img/artwork-03.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
-      <a href="#"><img src="/img/artwork-04.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
-      <a href="#"><img src="/img/artwork-08.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
-      <a href="#"><img src="/img/artwork-09.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
-      <a href="#"><img src="/img/artwork-13.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
-      <a href="#"><img src="/img/artwork-10.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
-      <a href="#"><img src="/img/artwork-14.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
-      <a href="#"><img src="/img/artwork-11.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
-      <a href="#"><img src="/img/artwork-12.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
+      -->
     </div>
 
     <div class="row">
