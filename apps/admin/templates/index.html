@@ -40,101 +40,122 @@
     <div class="row"><h1>Admin</h1></div>
 
     <div class="row">
-      <section>
-        <h2>Artworks</h2>
-        <table class="table table-condensed">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Title</th>
-              <th>Category</th>
-              <th>Width</th>
-              <th>Height</th>
-              <th>Image URL</th>
-              <th>Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for a in artworks %}
-            <tr>
-              <td></td>
-              <td>{{a.get('title')}}</td>
-              <td>{{a.get('category')}}</td>
-              <td>{{a.get('width')}}</td>
-              <td>{{a.get('height')}}</td>
-              <td>{{a.get('images').image_url}}</td>
-              <td>{{a.get('date')}}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </section>
+      <div class="col-md-2">
+        <nav class="admin-sidebar">
+          <h3>Artworks</h3>
+          <ul class="nav nav-pills nav-stacked">
+            <li class="active"><a href="#all-artworks" data-toggle="pill">All artworks</a></li>
+            <li><a href="#add-artworks" data-toggle="pill">Add artworks</a></li>
+          </ul>
+        </nav>
+      </div>
 
-      <section class="admin-artwork-create">
-        <h2>Create new artworks</h2>
-        <form class="form-horizontal" role="form" id="artwork-create-form">
-          <div class="form-group">
-            <label for="artwork-create-image" class="col-sm-2 control-label">Image</label>
-            <div class="col-sm-10">
-              <input type="file" class="form-control" id="artwork-create-image" name="image">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="title" class="col-sm-2 control-label">Title</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="title" name="title" placeholder="Artwork Title">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="description" class="col-sm-2 control-label">Description</label>
-            <div class="col-sm-10">
-              <textarea class="form-control" rows="5" name="description" id="description"></textarea>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="width" class="col-sm-2 control-label">Width</label>
-            <div class="col-sm-8">
-              <input type="text" class="form-control" id="width" name="width" placeholder="Width">
-            </div>
-            <div class="col-sm-2">cm</div>
-          </div>
-          <div class="form-group">
-            <label for="height" class="col-sm-2 control-label">Height</label>
-            <div class="col-sm-8">
-              <input type="text" class="form-control" id="height" name="height" placeholder="Height">
-            </div>
-            <div class="col-sm-2">cm</div>
-          </div>
-          <div class="form-group">
-            <label for="date" class="col-sm-2 control-label">Date</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="date" name="date" placeholder="Date">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="category" class="col-sm-2 control-label">Category</label>
-            <div class="col-sm-10">
-              <select class="form-control" name="category">
-                <option value="plum">梅 (Plum)</option>
-                <option value="orchid">蘭 (Orchid)</option>
-                <option value="bamboo">竹 (Bamboo)</option>
-                <option value="mum">菊 (Mum)</option>
-                <option value="wisteria">紫藤 (Wisteria)</option>
-                <option value="peony">牡丹 (Peony)</option>
-                <option value="grape">葡萄 (Grape)</option>
-                <option value="lotus">蓮花 (Lotus)</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <button type="submit" class="btn btn-default">Create</button>
-            </div>
-          </div>
-        </form>
+      <div class="col-md-10 tab-content">
+        <section id="all-artworks" class="tab-pane active fade in">
+          <h2>All Artworks</h2>
+          <table class="table table-condensed table-hover artworks-overview">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Width</th>
+                <th>Height</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Page</th>
+                <!--<th>Delete</th>-->
+              </tr>
+            </thead>
+            <tbody>
+              {% for a in artworks %}
+              <tr>
+                {% macro image_url() -%}
+                  /img{{a.get('images').image_url|replace(':version', a.get('images').image_versions[0])}}
+                {%- endmacro %}
+                <td class="artwork-image">
+                  <a href="{{image_url()}}" target="_blank"><img src="{{image_url()}}"></a>
+                </td>
+                <td>{{a.get('title')}}</td>
+                <td>{{a.get('category')}}</td>
+                <td>{{a.get('width')}}</td>
+                <td>{{a.get('height')}}</td>
+                <td>{{a.get('description')}}</td>
+                <td>{{a.get('date')|date('Y-m-d')}}</td>
+                <td><a href="/artwork/{{a.get('id')}}">Go to page</a></td>
+                <!--<td>Delete</td>-->
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </section>
 
-        <div class="messages"></div>
-      </section>
+        <section id="add-artworks" class="admin-artwork-create tab-pane fade">
+          <h2>Create new artworks</h2>
+          <form class="form-horizontal" role="form" id="artwork-create-form">
+            <div class="form-group">
+              <label for="artwork-create-image" class="col-sm-2 control-label">Image</label>
+              <div class="col-sm-5">
+                <input type="file" class="form-control" id="artwork-create-image" name="image">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="title" class="col-sm-2 control-label">Chinese Title</label>
+              <div class="col-sm-5">
+                <input type="text" class="form-control" id="title" name="title" placeholder="e.g. 濃淡由他冰雪中">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="description" class="col-sm-2 control-label">Description</label>
+              <div class="col-sm-5">
+                <textarea class="form-control" rows="5" name="description" id="description"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="width" class="col-sm-2 control-label">Width</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="width" name="width" placeholder="Width">
+              </div>
+              <div class="col-sm-1">cm</div>
+            </div>
+            <div class="form-group">
+              <label for="height" class="col-sm-2 control-label">Height</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="height" name="height" placeholder="Height">
+              </div>
+              <div class="col-sm-1">cm</div>
+            </div>
+            <div class="form-group">
+              <label for="date" class="col-sm-2 control-label">Publication Date</label>
+              <div class="col-sm-5">
+                <input type="text" class="form-control" id="date" name="date" placeholder="e.g. 2011">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="category" class="col-sm-2 control-label">Category</label>
+              <div class="col-sm-5">
+                <select class="form-control" name="category">
+                  <option value="plum">梅 (Plum)</option>
+                  <option value="orchid">蘭 (Orchid)</option>
+                  <option value="bamboo">竹 (Bamboo)</option>
+                  <option value="mum">菊 (Mum)</option>
+                  <option value="wisteria">紫藤 (Wisteria)</option>
+                  <option value="peony">牡丹 (Peony)</option>
+                  <option value="grape">葡萄 (Grape)</option>
+                  <option value="lotus">蓮花 (Lotus)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default btn-lg">Add this artwork</button>
+              </div>
+            </div>
+          </form>
+
+          <div class="col-sm-7 messages"></div>
+        </section>
+      </div>
     </div>
 
     <div class="row">
@@ -150,5 +171,8 @@
 
 {% block script %}
 {% parent %}
+<script src="/js/bs/transition.js"></script>
+<script src="/js/bs/tab.js"></script>
+<script src="/js/bs/affix.js"></script>
 <script src="/js/admin.js"></script>
 {% endblock %}

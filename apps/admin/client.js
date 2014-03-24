@@ -28,12 +28,21 @@ module.exports.AdminView = AdminView = Backbone.View.extend({
   submitForm: function(e) {
     e.preventDefault();
 
-    var data = $(e.currentTarget).serializeObject()
-      , artwork = new Artwork(this.transformFormData(data))
+    var data      = $(e.currentTarget).serializeObject()
+      , artwork   = null
       , imageHash = uuid.v1()
       , imageForm = new FormData()
-      , that = this;
+      , that      = this;
 
+    // very basic client-side validation
+    // should be replaced with more complete rules.
+    for (var field in data) {
+      if (data[field] == "") {
+        return this.showError("All fields are required");
+      }
+    } 
+
+    artwork = new Artwork(this.transformFormData(data));
     artwork.set({
       id: pinyin(data.title, {style: pinyin.STYLE_NORMAL}).join("-").toLowerCase(),
       images: {
@@ -54,6 +63,7 @@ module.exports.AdminView = AdminView = Backbone.View.extend({
       processData: false,  // tell jQuery not to process the data
       contentType: false,  // tell jQuery not to set contentType
       success: function(data, textStatus, jqXHR) {
+        that.showSuccess("Image uploaded successfully!");
       },
       error: function(jqXHR, textStatus, error) {
         that.showError(error);
@@ -69,9 +79,11 @@ module.exports.AdminView = AdminView = Backbone.View.extend({
             that.showError(field + " " + response._issues[field]);
           }
         } else {
+          that.showSuccess("Artwork created successfully!", true);
         }
       },
       error: function(model, response, options) {
+        that.showError(response, true);
       }
     });
   },
@@ -113,7 +125,5 @@ module.exports.AdminView = AdminView = Backbone.View.extend({
 });
 
 module.exports.init = function() {
-  new AdminView({
-    el: $('body')
-  });
+  new AdminView({ el: $('body') });
 };
