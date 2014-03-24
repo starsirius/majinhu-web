@@ -7,35 +7,7 @@
 {% block content %}
   <div class="container">
 
-    <!-- Navbar -->
-    <div class="row">
-      <div class="header-container">
-        <header class="navbar navbar-wide" role="navigation">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <a class="navbar-brand navbar-stamp" href="/"></a>
-              <a class="navbar-brand navbar-logo" href="/"></a>
-              <a class="navbar-brand navbar-subtitle hidden-xs" href="/"></a>
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-            </div>
-            <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="#" class="faux-underline-hover"><div class="cht">馬金虎</div><div class="eng">Jinhu Ma</div></a>
-                </li>
-                <li><a href="#" class="faux-underline-hover"><div class="cht">作品集</div><div class="eng">Artworks</div></a></li>
-                <li><a href="#" class="faux-underline-hover"><div class="cht">最新消息</div><div class="eng">News</div></a></li>
-                <li><a href="#" class="faux-underline-hover"><div class="cht">聯絡我們</div><div class="eng">Contact</div></a></li>
-              </ul>
-            </div>
-          </div>
-        </header>
-      </div>
-    </div>
+    {% include "../../../components/global/templates/navbar.html" %}
     
     <div class="row"><h1>Admin</h1></div>
 

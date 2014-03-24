@@ -1,0 +1,30 @@
+<!-- Navbar -->
+<div class="row">
+  <div class="header-container header-container-right">
+    <header class="navbar navbar-wide" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand navbar-stamp" href="/"></a>
+          <a class="navbar-brand navbar-logo" href="/"></a>
+          {% if not noSubtitle %}
+          <a class="navbar-brand navbar-subtitle hidden-xs" href="/"></a>
+          {% endif %}
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="/" class="faux-underline-hover"><div>馬金虎</div><div>Jinhu Ma</div></a></li>
+            <li><a href="/artworks" class="faux-underline-hover"><div>作品集</div><div>Artworks</div></a></li>
+            <li><a href="/news" class="faux-underline-hover"><div>最新消息</div><div>News</div></a></li>
+            <li><a href="/contact" class="faux-underline-hover"><div>聯絡我們</div><div>Contact</div></a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+  </div>
+</div>
