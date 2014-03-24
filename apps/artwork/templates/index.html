@@ -9,10 +9,7 @@
 
     <div class="artwork-image-container-left">
       <figure class="artwork-image">
-        <img src="/img/artwork-15.jpg">
-        <!--
-        <img src="/img/artwork-13.jpg">
-        -->
+        <img src="/img{{artwork.get('images').image_url|replace(':version', artwork.get('images').image_versions[0])}}">
       </figure>
     </div>
 
@@ -22,17 +19,17 @@
       <div class="row">
         <div class="breadcrumbs-container">
           <ol class="breadcrumb">
-            <li><a href="#">馬金虎</a></li>
-            <li><a href="#">作品集</a></li>
-            <li><a href="#">梅</a></li>
-            <li class="active">黃花過時有餘香</li>
+            <li><a href="/">馬金虎</a></li>
+            <li><a href="/artworks">作品集</a></li>
+            <li><a href="/artworks#{{artwork.get('category')|first}}">{{artwork.get('category')|first|capitalize}}</a></li>
+            <li class="active">{{artwork.get('title')}}</li>
           </ol>
         </div>
       </div>
 
       <div class="row">
         <div class="artwork-heading-container">
-          <h1>黃花過時有餘香</h1>
+          <h1>{{artwork.get('title')}}</h1>
           <ol class="artwork-sharing list-unstyled list-inline">
             <li><a href="#" class="icon-facebook"></a></li>
             <li><a href="#" class="icon-twitter"></a></li>
@@ -54,11 +51,11 @@
             </li>
             <li>
               <span class="artwork-meta-key">時間</span>
-              <span class="artwork-meta-value">創作於 2011 年 11 月</span>
+              <span class="artwork-meta-value">創作於 {{artwork.get('date')|date('Y')}} 年 {{artwork.get('date')|date('m')}} 月</span>
             </li>
             <li>
               <span class="artwork-meta-key">尺寸</span>
-              <span class="artwork-meta-value">長 101cm 寬 91 cm</span>
+              <span class="artwork-meta-value">長 {{artwork.get('height')}} cm 寬 {{artwork.get('width')}} cm</span>
             </li>
           </ol>
         </div>
@@ -66,17 +63,9 @@
         <div class="artwork-details-container">
           <section class="artwork-details-section">
             <h2>作品介紹</h2>
-            <p>
-            在馬老師的系列作品中，呈現出的片段、碎裂、
-            微小、隱晦......，在每一個凍結的瞬間，在無
-            數轉眼即逝的漂浮意識中，心靈捕捉了足以引起
-            迴響的微細素材，經過沉澱、凝視、轉化，將「
-            自然」本體賦予「流動」的意識。過程中不必然
-            是具象或是抽象，也不盡然確定最後表現的結果，
-            反而是讓流動的意識主導一切，隨心而定，隨興
-            而走。
-            </p>
+            <p>{{artwork.get('description')}}</p>
           </section>
+          <!--
           <section class="artwork-details-section">
             <h2>作品鑒賞</h2>
             <p>
@@ -89,6 +78,7 @@
             作畫。
             </p>
           </section>
+          -->
 
           <div class="artwork-comments">
             <h2>留言討論</h2>

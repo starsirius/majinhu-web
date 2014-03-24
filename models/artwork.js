@@ -3,4 +3,6 @@ var Backbone = require('backbone')
 
 module.exports = Artwork = Backbone.Model.extend({
 
+  urlRoot: sd.API_URL + '/artworks'
+
 });

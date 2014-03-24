@@ -23,7 +23,7 @@ assets:
 	mkdir -p public/js
 	$(foreach file, $(shell find assets/js -maxdepth 1 -name '*.js' | cut -d '.' -f 1 | cut -d '/' -f 2-), \
 		$(BIN)/browserify assets/$(file).js > public/$(file).js; \
-		$(BIN)/uglifyjs public/$(file).js > public/$(file).min.js \
+		$(BIN)/uglifyjs public/$(file).js > public/$(file).min.js; \
 	)
 	cp -r assets/js/bs assets/js/vendor public/js
 	cp -r assets/img assets/fonts assets/icon-fonts assets/favicon.ico assets/humans.txt public
