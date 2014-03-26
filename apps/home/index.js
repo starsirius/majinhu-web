@@ -19,3 +19,5 @@ swig.setDefaults({ cache: false });
 swig.setDefaults({ loader: swig.loaders.fs(__dirname + '/../../components/global/templates') });
 
 app.get('/', routes.index);
+app.get('/news', routes.news);
+app.get('/contact', routes.contact);

@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+
+{% block title %}Ma Jinhu{% endblock %}
+
+{% block bodyId %}contact{% endblock %}
+
+{% block content %}
+  <div class="drawing-container hidden-sm hidden-xs">
+    <img class="drawing" src="img/background.png">
+  </div>
+
+  <div class="container">
+
+    {% include "../../../components/global/templates/navbar.html" %}
+
+    <div class="row">
+
+      <!-- Profile picture -->
+      <div class="profile-pic-container">
+        <figure class="profile-pic">
+          <img src="img/profile-pic.jpg" alt="Jinhu Ma">
+          <figurecaption></figurecaption>
+        </figure>
+      </div>
+
+      <div class="contact-container">
+        <section>
+          <h1>聯絡我們 Contact</h1>
+          <p>
+          有興趣或任何問題的朋友，歡迎 email 聯絡
+          <a href="mailto:zhangeric83@yahoo.com">馬金虎老師</a>。
+          或者在底下留言，我們會儘快答覆您。
+          </p>
+        </section>
+
+        <section>
+          <h2>留言討論</h2>
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+            var disqus_shortname = 'majinhu';
+
+            (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </section>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="footer-container">
+        <footer class="footer">
+        &copy; 2014. All rights reserved.
+        </footer>
+      </div>
+    </div>
+
+  </div>
+{% endblock %}
