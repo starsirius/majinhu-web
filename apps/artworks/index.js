@@ -19,3 +19,4 @@ swig.setDefaults({ cache: false });
 swig.setDefaults({ loader: swig.loaders.fs(__dirname + '/../../components/global/templates') });
 
 app.get('/artworks', routes.index);
+app.get('/artworks/:category', routes.category);

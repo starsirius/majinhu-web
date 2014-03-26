@@ -18,7 +18,9 @@
     "passport": "*",
     "passport-local": "*",
     "superagent": "*",
-    "moment": "*"
+    "moment": "*",
+    "underscore": "*",
+    "underscore.string": "*"
   },
   "devDependencies": {
     "jquery": "*",

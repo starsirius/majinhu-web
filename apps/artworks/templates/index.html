@@ -31,13 +31,18 @@
       <div class="col-lg-11 nav-artworks-filter-container">
         <nav class="nav-artworks-filter">
           <ul class="nav navbar-nav">
-            <li><h1><div class="cht">梅</div><div class="eng">Plum</div></h1></li>
-            <li><a href="#"><div class="cht">蘭</div><div>Orchids</div></a></li>
-            <li><a href="#"><div class="cht">竹</div><div>Bamboo</div></a></li>
-            <li><a href="#"><div class="cht">菊</div><div>Mums</div></a></li>
-            <li><a href="#"><div class="cht">紫藤</div><div>Wisteria</div></a></li>
-            <li><a href="#"><div class="cht">牡丹</div><div>Peony</div></a></li>
-            <li><a href="#"><div class="cht">全</div><div>All</div></a></li>
+            {% if not category %}
+            <li><h1><div class="cht">全</div><div class="eng">All</div></h1></li>
+            {% endif %}
+            {% if category %}
+            <li><h1><div class="cht">{{category.chinese}}</div><div class="eng">{{category.english}}</div></h1></li>
+            {% endif %}
+            {% for c in categories %}
+            <li><a href="/artworks/{{c.english}}"><div class="cht">{{c.chinese}}</div><div>{{c.english}}</div></a></li>
+            {% endfor %}
+            {% if category %}
+            <li><a href="/artworks"><div class="cht">全</div><div>All</div></a></li>
+            {% endif %}
           </ul>
         </nav>
         <div class="scroll-button">
@@ -66,7 +71,7 @@
     <div id="gallery" class="black-ink-gallery">
       {% for i, a in artworks -%}
         {% set image_url = a.get('images')['image_url']|replace(':version', a.get('images')['image_versions'][0]) %}
-        <a href="/img{{image_url}}"><img src="/img{{image_url}}" alt="{{a.get('title')}}" data-caption='{"artwork-name": "{{a.get('title')}}", "artwork-meta": "{{a.get('date')|date('Y')}} 年作品 長 {{a.get('height')}} cm 寬 {{a.get('width')}} cm"}'></a>
+        <a href="/artwork/{{a.get('id')}}"><img src="/img{{image_url}}" alt="{{a.get('title')}}" data-caption='{"artwork-name": "{{a.get('title')}}", "artwork-meta": "{{a.get('date')|date('Y')}} 年作品 長 {{a.get('height')}} cm 寬 {{a.get('width')}} cm"}'></a>
       {%- endfor %}
       <!--
       <a href="#"><img src="/img/artwork-01.jpg" alt="" data-caption='{"artwork-name": "黃花過時有餘香", "artwork-meta": "2011 年作品 長 120cm 寬 45cm"}'></a>
