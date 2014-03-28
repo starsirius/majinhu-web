@@ -1,6 +1,19 @@
+{% set image_url = artwork.get('images')['image_url']|replace(':version', artwork.get('images')['image_versions'][0]) %}
+
 {% extends 'layout.html' %}
 
-{% block title %}Ma Jinhu - Artwork{% endblock %}
+{% block title %}{{artwork.get('title')}} | Ma Jinhu 馬金虎{% endblock %}
+
+{% block socialMeta %}
+  <meta property="og:title" content="{{artwork.get('title')}} | Ma Jinhu 馬金虎">
+  <meta property="og:description" content="{{artwork.get('title')}} | Ma Jinhu 馬金虎">
+  <meta property="twitter:description" content="{{artwork.get('title')}} | Ma Jinhu 馬金虎">
+  <link rel="canonical" href="{{sd.APP_URL + sd.CURRENT_PATH}}">
+  <meta property="og:url" content="{{sd.APP_URL + sd.CURRENT_PATH}}">
+  <meta property="og:type" content="">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="{{sd.APP_URL + sd.CURRENT_PATH}}">
+{% endblock %}
 
 {% block bodyId %}artwork{% endblock %}
 
@@ -9,7 +22,7 @@
 
     <div class="artwork-image-container-left">
       <figure class="artwork-image">
-        <img src="/img{{artwork.get('images').image_url|replace(':version', artwork.get('images').image_versions[0])}}">
+        <img src="/img{{image_url}}">
       </figure>
     </div>
 
@@ -31,9 +44,20 @@
         <div class="artwork-heading-container">
           <h1>{{artwork.get('title')}}</h1>
           <ol class="artwork-sharing list-unstyled list-inline">
-            <li><a href="#" class="icon-facebook"></a></li>
-            <li><a href="#" class="icon-twitter"></a></li>
-            <li><a href="#" class="icon-pinterest"></a></li>
+            {% set url = encodeURIComponent(sd.APP_URL + sd.CURRENT_PATH) -%}
+            {% set description = artwork.get('title') + " | Ma Jinhu 馬金虎" -%}
+            {% set media = "http://majinhu.com/img" + image_url -%}
+            <li><a href="#" onclick="window.open(
+              'https://www.facebook.com/sharer.php?u={{url}}',
+              'facebook-share-dialog',
+              'width=626,height=436');
+              return false;" class="icon-facebook"></a></li>
+            <li><a href="https://twitter.com/intent/tweet?original_referer={{url}}&text={{description}}&url={{url}}" class="icon-twitter" target="_blank"></a></li>
+            <li><a href="#" onclick="window.open(
+              'https://pinterest.com/pin/create/button/?url={{url}}&media={{media}}&description={{description}}',
+              'pinterest-share-dialog',
+              'width=626,height=436');
+              return false;" class="icon-pinterest"></a></li>
           </ol>
         </div>
       </div>
@@ -112,5 +136,6 @@
 {% endblock %}
 
 {% block script %}
+<script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
 <script src="/js/artwork.min.js"></script>
 {% endblock %}
