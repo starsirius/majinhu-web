@@ -11,22 +11,13 @@ npm install
 ##### Configure development/production/test settings
 Modify `config/[development|production|test].js` to configure settings for different mode. 
 
-##### Configure web server to proxy to corresponding port
+##### Configure web server to proxy to corresponding port (optional)
 TODO
 
-#### Install forever
+##### Install forever (optional)
 TODO
 
-#### Run the server
-##### Run the server in development mode (default)
-```bash
-make s
-```
-##### Run the server in production mode
-```bash
-make sp
-```
-##### Run the server in test mode
-```bash
-make st
-```
+##### Run the server
+ - Run the server in development mode (default): `make s`
+ - Run the server in production mode: `make sp`
+ - Run the server in test mode: `make st`
