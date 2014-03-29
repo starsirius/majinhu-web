@@ -15,12 +15,12 @@ var Backbone = require('backbone')
 
 Backbone.$ = $;
 
-module.exports.HomeView = HomeView = Backbone.View.extend({
+module.exports.ArtworksView = ArtworksView = Backbone.View.extend({
 
 });
 
 module.exports.init = function() {
-  new CommitsView({
+  new ArtworksView({
     el: $('body')
   });
 };
