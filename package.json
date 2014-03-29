@@ -1,6 +1,6 @@
 {
-  "name": "ezel",
-  "version": "0.0.2",
+  "name": "majinhu-web",
+  "version": "0.0.1",
   "scripts": {
     "start": "make s"
   },
@@ -13,7 +13,7 @@
     "backbone": "*",
     "backbone-super-sync": "*",
     "less-middleware": "*",
-    "pinyin": "*",
+    "pinyin": "git://github.com/vingel/node-pinyin.git#master",
     "node-uuid": "*",
     "passport": "*",
     "passport-local": "*",
