@@ -8,9 +8,17 @@
 
 BIN = node_modules/.bin
 
-# Start the server
+# Start the server in development mode
 s:
 	node index.js
+
+# Start the server in test mode
+st:
+	NODE_ENV=test node index.js
+
+# Start the server in production mode
+sp:
+	NODE_ENV=production node index.js
 
 # Run all of the project-level tests, followed by app-level tests
 test: assets
