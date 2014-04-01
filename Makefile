@@ -41,10 +41,10 @@ assets:
 	)
 	cp -r assets/js/bs assets/js/vendor public/js
 	cp -r assets/img assets/fonts assets/icon-fonts assets/favicon.ico assets/humans.txt public
-	#mkdir -p public/css
-	#$(foreach file, $(shell find assets -name '*.styl' | cut -d '.' -f 1), \
-	#	$(BIN)/sqwish public/$(file).css -o public/$(file).min.css \
-	#)
+	mkdir -p public/css
+	$(foreach file, $(shell find assets/less -name '*.less' | cut -d '.' -f 1 | cut -d '/' -f 3-), \
+		$(BIN)/lessc --clean-css assets/less/$(file).less > public/css/$(file).css; \
+	)
 
 # Cleans up the initial GitHub app example files. After running this you might
 # want to change the API_URL in config, mount your own app in lib/setup,
