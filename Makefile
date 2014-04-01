@@ -11,14 +11,20 @@ BIN = node_modules/.bin
 # Start the server in development mode
 s:
 	node index.js
+fs:
+	forever -l log/forever.log -o log/output.log -e log/error.log -p $(shell pwd) --append --number 1000 start index.js
 
 # Start the server in test mode
 st:
 	NODE_ENV=test node index.js
+fst:
+	NODE_ENV=test forever -l log/forever.log -o log/output.log -e log/error.log -p $(shell pwd) --append --number 1000 start index.js
 
 # Start the server in production mode
 sp:
 	NODE_ENV=production node index.js
+fsp:
+	NODE_ENV=production forever -l log/forever.log -o log/output.log -e log/error.log -p $(shell pwd) --append --number 1000 start index.js
 
 # Run all of the project-level tests, followed by app-level tests
 test: assets
