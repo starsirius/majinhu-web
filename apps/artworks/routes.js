@@ -8,11 +8,12 @@ var _         = require('underscore')
   // Move categories to database eventually
   , categories = [
     { english: 'plum'     , chinese: '梅'   },
-    { english: 'orchids'  , chinese: '蘭'   },
+    { english: 'orchid'   , chinese: '蘭'   },
     { english: 'bamboo'   , chinese: '竹'   },
-    { english: 'mums'     , chinese: '菊'   },
+    { english: 'mum'      , chinese: '菊'   },
     { english: 'wisteria' , chinese: '紫藤' },
     { english: 'peony'    , chinese: '牡丹' },
+    { english: 'lotus'    , chinese: '蓮花' },
     { english: 'magnolia' , chinese: '玉蘭' }
   ];
 
