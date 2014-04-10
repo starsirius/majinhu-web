@@ -44,6 +44,11 @@ sudo a2ensite majinhu.com
 ##### Install forever (optional)
 https://github.com/nodejitsu/forever
 
+##### Compile assets (for production)
+```bash
+make assets
+```
+
 ##### Run the server
  - Run the server in development mode (default): `make s` or `make fs` (if want to use forever)
  - Run the server in production mode: `make sp` or `make fsp` (if want to use forever)
