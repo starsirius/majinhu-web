@@ -93,11 +93,30 @@
   {% parent %}
   <script src="/js/vendor/black-ink-gallery.js"></script>
   <script>
-    $('#gallery').blackInkGallery();
+    // Re: http://stackoverflow.com/questions/8205812/jquery-js-ios-4-and-document-height-problems
+    var getWindowHeight = function() {
+      // Get zoom level of mobile Safari
+      // Note, that such zoom detection might not work correctly in other browsers
+      // We use width, instead of height, because there are no vertical toolbars :)
+      var zoomLevel = document.documentElement.clientWidth / window.innerWidth;
 
+      // window.innerHeight returns height of the visible area.
+      // We multiply it by zoom and get out real height.
+      return window.innerHeight * zoomLevel;
+    };
+
+    // You can also get height of the toolbars that are currently displayed
+    var getHeightOfIOSToolbars = function() {
+      var tH = (window.orientation === 0 ? screen.height : screen.width) -  getWindowHeight();
+      return tH > 1 ? tH : 0;
+    };
+
+    // Need to set the container's height before initializing blackInkGallery
     if ($('body')[0].style["-webkit-writing-mode"] != undefined) {
-      $('#artworks > .container').addClass('vertical-rl');
+      $('#artworks > .container').addClass('vertical-rl').height(getWindowHeight());
     }
+
+    $('#gallery').blackInkGallery();
 
     // If we display the scroll button
     $('.scroll-button-left, .scroll-button-right').on("mouseover", function(e) {
