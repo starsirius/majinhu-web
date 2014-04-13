@@ -40,7 +40,7 @@ assets:
 		$(BIN)/uglifyjs public/$(file).js > public/$(file).min.js; \
 	)
 	cp -r assets/js/bs assets/js/vendor public/js
-	cp -r assets/img assets/fonts assets/icon-fonts assets/favicon.ico assets/humans.txt public
+	cp -r assets/img assets/fonts assets/icon-fonts assets/favicon.ico assets/humans.txt assets/sitemap.xml public
 	mkdir -p public/css
 	$(foreach file, $(shell find assets/less -name '*.less' | cut -d '.' -f 1 | cut -d '/' -f 3-), \
 		$(BIN)/lessc --clean-css assets/less/$(file).less > public/css/$(file).css; \
