@@ -1,3 +1,5 @@
+![Ma Jinhu](assets/img/brand.png)
+
 # Majinhu-web
 
 Majin Hu's website
