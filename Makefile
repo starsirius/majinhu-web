@@ -43,7 +43,7 @@ assets:
 	cp -r assets/img assets/fonts assets/icon-fonts assets/favicon.ico assets/humans.txt assets/sitemap.xml public
 	mkdir -p public/css
 	$(foreach file, $(shell find assets/less -name '*.less' | cut -d '.' -f 1 | cut -d '/' -f 3-), \
-		$(BIN)/lessc --clean-css assets/less/$(file).less > public/css/$(file).css; \
+		$(BIN)/lessc --clean-css assets/less/$(file).less > public/css/$(file).min.css; \
 	)
 
 # Cleans up the initial GitHub app example files. After running this you might
