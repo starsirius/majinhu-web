@@ -26,6 +26,7 @@ module.exports.ArtworksView = ArtworksView = Backbone.View.extend({
   initialize: function() {
     this.setupContainer(); // need to set the container's height before initializing blackInkGallery
     this.$('#gallery').blackInkGallery();
+    this.setupScrolling();
   },
 
   render: function() {
@@ -39,6 +40,12 @@ module.exports.ArtworksView = ArtworksView = Backbone.View.extend({
       // so we have to set the height before adding the class.
       $container.height(this.getWindowHeight())
         .addClass('vertical-rl');
+    }
+  },
+
+  setupScrolling: function() {
+    if (navigator.userAgent.match(/(iPad|iPhone)/i)) {
+      this.$('.scroll-button-left, .scroll-button-right').hide();
     }
   },
 
