@@ -8,10 +8,10 @@
    *         content on the right.
    ***********************************/
   .artwork-image-container-left {
-    .make-sm-column(3);
+    .make-sm-column(4);
     .make-md-column(3);
     .make-lg-column(3);
-    .sm-fixed-artwork-image-container-width(3);
+    .sm-fixed-artwork-image-container-width(4);
     .md-fixed-artwork-image-container-width(3);
     .lg-fixed-artwork-image-container-width(3);
     position: fixed;
@@ -23,11 +23,11 @@
         float: right;
         margin-right: 20px;
         height: 100%;
-        min-height: 700px;
+        min-height: 500px;
       }
     }
 
-    @media (max-width: @screen-sm-min) {
+    @media (max-width: @screen-xs-max) {
       position: initial;
       margin-top: 100px;
       .artwork-image {
@@ -45,8 +45,8 @@
 
   .header-container-right,
   .artwork-content-container-right {
-    .make-sm-column(9);
-    .make-sm-column-offset(3);
+    .make-sm-column(8);
+    .make-sm-column-offset(4);
     .make-md-column(9);
     .make-md-column-offset(3);
     .make-lg-column(9);
@@ -54,7 +54,7 @@
   }
 
   .header-container-right {
-    @media (max-width: @screen-sm-min) {
+    @media (max-width: @screen-xs-max) {
       position: fixed;
       top: 0;
       width: @container-lg - @grid-gutter-width * 2;
