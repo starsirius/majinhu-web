@@ -20,7 +20,8 @@
     "superagent": "*",
     "moment": "*",
     "underscore": "*",
-    "underscore.string": "*"
+    "underscore.string": "*",
+    "black-ink-gallery": "git://github.com/starsirius/black-ink-gallery.git#master"
   },
   "devDependencies": {
     "jquery": "*",
