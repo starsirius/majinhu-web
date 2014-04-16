@@ -21,7 +21,8 @@
     "moment": "*",
     "underscore": "*",
     "underscore.string": "*",
-    "black-ink-gallery": "git://github.com/starsirius/black-ink-gallery.git#master"
+    "black-ink-gallery": "git://github.com/starsirius/black-ink-gallery.git#master",
+    "newrelic": "*"
   },
   "devDependencies": {
     "jquery": "*",

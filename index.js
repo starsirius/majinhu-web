@@ -4,8 +4,13 @@
 // be abstracted into modules under /lib.
 // 
 
-var c = require('./config')
-  , express = require('express')
+var c = require('./config');
+
+if (c.NODE_ENV == 'production') {
+  require('newrelic');
+}
+
+var express = require('express')
   , setup = require('./lib/setup');
 
 var app = module.exports = express();
